@@ -96,7 +96,6 @@
             <response-header-provider class="jetty-no-response-headers"/>
             <content-type-provider class="http-null-content-type-provider"/>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>check-filesystem</unique-id>
         </standard-workflow>
         <standard-workflow>
@@ -139,7 +138,6 @@
             <response-header-provider class="jetty-no-response-headers"/>
             <content-type-provider class="http-null-content-type-provider"/>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>move-directory</unique-id>
         </standard-workflow>
         <standard-workflow>
@@ -202,7 +200,6 @@
             <response-header-provider class="jetty-no-response-headers"/>
             <content-type-provider class="http-null-content-type-provider"/>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>list-directory</unique-id>
         </standard-workflow>
         <standard-workflow>
@@ -240,7 +237,6 @@
               <mime-type>application/zip</mime-type>
             </content-type-provider>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>zip-directory</unique-id>
         </standard-workflow>
         <standard-workflow>
@@ -290,7 +286,6 @@
             <response-header-provider class="jetty-no-response-headers"/>
             <content-type-provider class="http-null-content-type-provider"/>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>unzip-file</unique-id>
         </standard-workflow>
         <standard-workflow>
@@ -333,7 +328,6 @@
             <response-header-provider class="jetty-no-response-headers"/>
             <content-type-provider class="http-null-content-type-provider"/>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>remove-directory</unique-id>
         </standard-workflow>
       </workflow-list>
