@@ -1,0 +1,32 @@
+plugins {
+  // https://github.com/nemerosa/versioning
+  id 'net.nemerosa.versioning' version '2.14.0'
+}
+
+ext {
+  interlokParentGradle = "https://raw.githubusercontent.com/adaptris-labs/interlok-build-parent/master/build.gradle"
+  interlokVersion = '4.0-SNAPSHOT'
+  // Include the WAR file since by default it is excluded.
+  includeWar='true'
+}
+
+allprojects {
+  apply from: "${interlokParentGradle}"
+  // specify the version of the configuration.
+  version=versioning.info.full
+}
+
+dependencies {
+  interlokRuntime ("com.adaptris:interlok-json:$interlokVersion") { changing=true }
+  interlokRuntime ("com.adaptris:interlok-varsub:$interlokVersion") { changing=true }
+  interlokRuntime ("com.adaptris:interlok-xinclude:$interlokVersion") { changing=true }
+  interlokRuntime ("com.adaptris:interlok-filesystem:$interlokVersion") { changing=true }
+  interlokRuntime ("com.adaptris:interlok-service-tester:$interlokVersion") { changing=true }
+
+  interlokJavadocs group: "com.adaptris", name: "interlok-json", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
+  interlokJavadocs group: "com.adaptris", name: "interlok-varsub", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
+  interlokJavadocs group: "com.adaptris", name: "interlok-xinclude", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
+  interlokJavadocs group: "com.adaptris", name: "interlok-filesystem", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
+  interlokJavadocs group: "com.adaptris", name: "interlok-service-tester", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
+
+}

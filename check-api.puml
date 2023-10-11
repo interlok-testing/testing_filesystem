@@ -1,0 +1,36 @@
+@startuml
+cloud cloud [
+/check
+]
+storage check-filesystem-workflow {
+usecase usecase [
+jetty-message-consumer
+]
+rectangle rectangle1 [       
+log-message-service
+]
+ rectangle rectangle2 [       
+directory-entity-service
+]
+ rectangle rectangle3 [       
+metadata-to-payload
+]
+rectangle rectangle4 [       
+json-path-service
+]
+rectangle rectangle5 [       
+metadata-to-payload
+]
+usecase usecase2 [
+jetty-standard-response-producer
+] 
+}
+cloud -> usecase
+usecase -> rectangle1
+rectangle1 -> rectangle2
+rectangle2 -> rectangle3
+rectangle3 -> rectangle4
+rectangle4 -> rectangle5
+rectangle5 -> usecase2
+usecase2 -> cloud
+@enduml

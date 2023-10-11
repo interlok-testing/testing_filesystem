@@ -1,0 +1,28 @@
+@startuml
+cloud cloud [
+/list
+]
+storage list-directory-workflow {
+usecase usecase [
+jetty-message-consumer
+]
+rectangle rectangle1 [       
+log-message-service
+]
+ rectangle rectangle2 [       
+directory-listing-service
+]
+ rectangle rectangle3 [       
+json-transform-service
+]
+usecase usecase2 [
+jetty-standard-response-producer
+] 
+}
+cloud -> usecase
+usecase -> rectangle1
+rectangle1 -> rectangle2
+rectangle2 -> rectangle3
+rectangle3 -> usecase2
+usecase2 -> cloud
+@enduml

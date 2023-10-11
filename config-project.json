@@ -1,0 +1,49 @@
+{
+  "name" : "filesystem-testing",
+  "variableSets" : {
+    "default" : { }
+  },
+  "variableXpaths" : {
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"remove-directory\"]/service-collection/services/directory-entity-service[unique-id=\"suspicious-bartik\"]/directory-path" : "${test-folder-path}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"list-directory\"]/service-collection/services/directory-entity-service[unique-id=\"suspicious-bartik\"]/directory-path" : "${test-folder-path}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"unzip-file\"]/service-collection/services/directory-entity-service[unique-id=\"suspicious-bartik\"]/directory-path" : "${test-folder-path}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"zip-directory\"]/service-collection/services/directory-entity-service[unique-id=\"suspicious-bartik\"]/directory-path" : "${test-folder-path}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"move-directory\"]/service-collection/services/directory-entity-service[unique-id=\"suspicious-bartik\"]/directory-path" : "${test-folder-path}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"check-filesystem\"]/service-collection/services/directory-entity-service[unique-id=\"suspicious-bartik\"]/directory-path" : "${test-folder-path}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"remove-directory\"]/service-collection/services/directory-entity-service[unique-id=\"get-info-from-file\"]/directory-path" : "${test-folder-path}/%message{ticket}.json",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"list-directory\"]/service-collection/services/directory-entity-service[unique-id=\"get-info-from-file\"]/directory-path" : "${test-folder-path}/%message{ticket}.json",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"unzip-file\"]/service-collection/services/directory-entity-service[unique-id=\"get-info-from-file\"]/directory-path" : "${test-folder-path}/%message{ticket}.json",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"zip-directory\"]/service-collection/services/directory-entity-service[unique-id=\"get-info-from-file\"]/directory-path" : "${test-folder-path}/%message{ticket}.json",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"move-directory\"]/service-collection/services/directory-entity-service[unique-id=\"get-info-from-file\"]/directory-path" : "${test-folder-path}/%message{ticket}.json",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"check-filesystem\"]/service-collection/services/directory-entity-service[unique-id=\"get-info-from-file\"]/directory-path" : "${test-folder-path}/%message{ticket}.json",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"remove-directory\"]/service-collection/services/delete-directory-service[unique-id=\"delete-directory\"]/directory/value" : "${test-base-directory-path}\\%message{folder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"list-directory\"]/service-collection/services/directory-listing-service[unique-id=\"get-directory-listing\"]/directory/value" : "${test-base-directory-path}\\%message{folder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"unzip-file\"]/service-collection/services/unzip-service[unique-id=\"unzip-file\"]/directory/value" : "${test-base-directory-path}\\%message{folder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"zip-directory\"]/service-collection/services/zip-service[unique-id=\"zip-directory\"]/directory/value" : "${test-base-directory-path}\\%message{folder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"unzip-file\"]/service-collection/services/move-file-service[unique-id=\"move-directory\"]/directory/value" : "${test-base-directory-path}\\%message{folder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"move-directory\"]/service-collection/services/move-file-service[unique-id=\"move-directory\"]/directory/value" : "${test-base-directory-path}\\%message{folder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"unzip-file\"]/service-collection/services/unzip-service[unique-id=\"unzip-file\"]/original-path" : "${test-base-directory-path}\\%message{folder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"zip-directory\"]/service-collection/services/zip-service[unique-id=\"zip-directory\"]/original-path" : "${test-base-directory-path}\\%message{folder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"move-directory\"]/service-collection/services/move-file-service[unique-id=\"move-directory\"]/original-path" : "${test-base-directory-path}\\%message{folder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"unzip-file\"]/service-collection/services/unzip-service[unique-id=\"unzip-file\"]/new-path" : "${test-base-directory-path}\\%message{newfolder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"zip-directory\"]/service-collection/services/zip-service[unique-id=\"zip-directory\"]/new-path" : "${test-base-directory-path}\\%message{newfolder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"unzip-file\"]/service-collection/services/move-file-service[unique-id=\"move-directory\"]/new-path" : "${test-base-directory-path}\\%message{dest}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"move-directory\"]/service-collection/services/move-file-service[unique-id=\"move-directory\"]/new-path" : "${test-base-directory-path}\\%message{newfolder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"unzip-file\"]/service-collection/services/unzip-service[unique-id=\"unzip-file\"]/directory-path" : "${test-base-directory-path}\\%message{folder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"zip-directory\"]/service-collection/services/zip-service[unique-id=\"zip-directory\"]/directory-path" : "${test-base-directory-path}\\%message{folder}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"unzip-file\"]/service-collection/services/read-file-service[unique-id=\"sharp-bose\"]/file-path" : "${test-base-directory-path}\\%message{file}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"unzip-file\"]/service-collection/services/standalone-producer[unique-id=\"write-to-fs\"]/producer/base-directory-url" : "${test-base-directory-path-url}",
+    "/adapter/channel-list/channel[unique-id=\"filesystem-processing\"]/workflow-list/standard-workflow[unique-id=\"remove-directory\"]/service-collection/services/delete-directory-service[unique-id=\"delete-directory\"]/path/value" : "${test-base-directory-path}/%message{folder}"
+  },
+  "uidInXincludeCompntListFileName" : true,
+  "xincludeXpaths" : {
+  },
+  "additionalFiles" : {
+    "jetty.xml" : "jetty.xml",
+    "webdefault.xml" : "webdefault.xml",
+    "bootstrap.properties" : "bootstrap.properties",
+    "log4j2.xml" : "log4j2.xml"
+  },
+  "optionalComponentsInUse" : [ "com.adaptris:interlok-filesystem:4.0-SNAPSHOT", "com.adaptris:interlok-json:4.0-SNAPSHOT" ],
+  "structured" : true
+}

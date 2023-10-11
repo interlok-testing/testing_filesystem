@@ -1,0 +1,28 @@
+@startuml
+cloud cloud [
+/delete
+]
+storage remove-directory-workflow {
+usecase usecase [
+jetty-message-consumer
+]
+rectangle rectangle1 [       
+log-message-service
+]
+ rectangle rectangle2 [       
+delete-directory-service
+]
+ rectangle rectangle3 [       
+payload-from-template
+]
+usecase usecase2 [
+jetty-standard-response-producer
+] 
+}
+cloud -> usecase
+usecase -> rectangle1
+rectangle1 -> rectangle2
+rectangle2 -> rectangle3
+rectangle3 -> usecase2
+usecase2 -> cloud
+@enduml
