@@ -1,5 +1,8 @@
 # File System Testing
 
+[![license](https://img.shields.io/github/license/interlok-testing/testing_filesystem.svg)](https://github.com/interlok-testing/testing_filesystem/blob/develop/LICENSE)
+[![Actions Status](https://github.com/interlok-testing/testing_filesystem/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/interlok-testing/testing_filesystem/actions/workflows/gradle-build.yml)
+
 Project tests interlok-varsub & interlok-filesystem features
 
 ## What it does
