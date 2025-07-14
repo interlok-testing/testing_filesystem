@@ -7,9 +7,10 @@
       <null-connection>
         <unique-id>null-conn</unique-id>
       </null-connection>
-      <jetty-embedded-connection>
+      <jetty-http-connection>
         <unique-id>jetty-conn</unique-id>
-      </jetty-embedded-connection>
+        <port>${sysprop.jetty.http.port}</port>
+      </jetty-http-connection>
     </connections>
     <services/>
   </shared-components>
@@ -223,7 +224,7 @@
               </log-message-service>
               <zip-service>
                 <unique-id>zip-directory</unique-id>
-                <directory-path>${test-base-directory-path}\%message{folder}</directory-path>
+                <directory-path>${test-base-directory-path}${file-separator}%message{folder}</directory-path>
               </zip-service>
             </services>
           </service-collection>
