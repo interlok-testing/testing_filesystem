@@ -9,9 +9,7 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.core5.http.io.entity.HttpEntities;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -22,11 +20,6 @@ import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.OffsetDateTime;
-import java.time.OffsetTime;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -34,9 +27,9 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.util.zip.ZipFile;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DefaultFunctionalTest extends SingleAdapterFunctionalTest {
     ObjectMapper om = new ObjectMapper();
 
@@ -56,16 +49,23 @@ public class DefaultFunctionalTest extends SingleAdapterFunctionalTest {
         }
     }
 
-    @Override
-    protected void configureVariables(Properties p) {
-        p.put("test-base-directory-path", Path.of("").toAbsolutePath().getParent().resolve("resources").resolve("test").toString());
-        p.put("test-base-directory-path-url", "file://localhost/" + Path.of("..", "resources", "test"));
-        p.put("test-folder-path", Path.of("${test-base-directory-path}", "${test-folder}").toString());
-        p.put("file-separator", File.separator);
+    @BeforeAll
+    public void setup() throws Exception {
+        super.setup();
+//        File testDir = Paths.get("..","resources", "test").toFile();
+//        if (testDir.exists()) FileUtils.forceDelete(testDir);
     }
 
+    @Override
+    protected void customiseVariablesIfExists(Properties props) {
+        props.put("test-base-directory-path", Path.of("").toAbsolutePath().getParent().resolve("resources").resolve("test").toString());
+        props.put("test-base-directory-path-url", "file://localhost/" + Path.of("..", "resources", "test"));
+        props.put("test-folder-path", Path.of("${test-base-directory-path}", "${test-folder}").toString());
+        props.put("file-separator", File.separator);
+        super.customiseVariablesIfExists(props);
+    }
 
-    List<TestCaseData> test_check_data() {
+    List<TestCaseData> test_check_data() throws IOException {
         final String offsetDateTimeFormat = "yyyy-MM-dd'T'HH:mm:ssZ";
         final SimpleDateFormat sdf = new SimpleDateFormat(offsetDateTimeFormat);
         String lastModifiedDateTimeStr = sdf.format(new Date(Path.of("..", "resources", "test", "messages" , "INTERLOK-3555.json").toFile().lastModified()));
@@ -74,7 +74,7 @@ public class DefaultFunctionalTest extends SingleAdapterFunctionalTest {
                 new TestCaseData(adapterBaseUrl + "/check?field=updatedAt&ticket=INTERLOK-3542", lastModifiedDateTimeStr),
                 new TestCaseData(adapterBaseUrl + "/check?field=size&ticket=INTERLOK-3551", "167"),
                 new TestCaseData(adapterBaseUrl + "/check?field=createdAt&ticket=INTERLOK-3555", lastModifiedDateTimeStr),
-                new TestCaseData(adapterBaseUrl + "/check?field=absolutePath&ticket=INTERLOK-3557", Paths.get("..","resources", "test", "messages", "INTERLOK-3557.json" ).toAbsolutePath().toString())
+                new TestCaseData(adapterBaseUrl + "/check?field=absolutePath&ticket=INTERLOK-3557", Paths.get("..","resources", "test", "messages", "INTERLOK-3557.json" ).toFile().getCanonicalPath().toString())
 
         );
     }

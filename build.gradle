@@ -33,3 +33,11 @@ dependencies {
 
   testImplementation group: "com.adaptris", name: "interlok-testing-common", version: "$interlokTestingVersion"
 }
+
+tasks.register('cleanResources') {
+  project.delete(file("${buildDir}/resources"));
+}
+
+tasks.named('functionalTest') {
+  dependsOn('cleanResources')
+}

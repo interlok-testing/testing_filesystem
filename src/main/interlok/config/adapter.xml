@@ -7,10 +7,9 @@
       <null-connection>
         <unique-id>null-conn</unique-id>
       </null-connection>
-      <jetty-http-connection>
+      <jetty-embedded-connection>
         <unique-id>jetty-conn</unique-id>
-        <port>${sysprop.jetty.http.port}</port>
-      </jetty-http-connection>
+      </jetty-embedded-connection>
     </connections>
     <services/>
   </shared-components>
