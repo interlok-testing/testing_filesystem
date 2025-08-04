@@ -6,7 +6,6 @@ plugins {
 ext {
   testingCommonGradle = "https://raw.githubusercontent.com/interlok-testing/testing_common/refs/heads/master/common.gradle?timestamp=${new Date().getTime()}"
   //testingCommonGradle = "../interlok-testing-common/common.gradle"
-  interlokTestingVersion = "0.1"
   // Include the WAR file since by default it is excluded.
   includeWar='true'
 }
@@ -27,11 +26,6 @@ dependencies {
   interlokJavadocs group: "com.adaptris", name: "interlok-varsub", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
   interlokJavadocs group: "com.adaptris", name: "interlok-xinclude", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
   interlokJavadocs group: "com.adaptris", name: "interlok-filesystem", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
-  interlokJavadocs group: "com.adaptris", name: "interlok-service-tester", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
-
-  interlokTestRuntime ("com.adaptris:interlok-service-tester:$interlokVersion") { changing=true }
-
-  testImplementation group: "com.adaptris", name: "interlok-testing-common", version: "$interlokTestingVersion"
 }
 
 tasks.register('cleanResources') {
